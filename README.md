@@ -1,0 +1,2 @@
+pb.sh - pastebin wrapper
+
