@@ -1,4 +1,24 @@
-#!/bin/bash
+#!/bin/bash -
+#===============================================================================
+#
+#          FILE: pb.sh
+#
+#         USAGE: ./pb.sh -n vim.$$ -u -e 1W
+#
+#   DESCRIPTION:  Takes STDIN and outputs to Pastebin.com
+#
+#       OPTIONS: -n <name> -u (unlisted) -e 1W (expires in 1 week)
+#  REQUIREMENTS: cURL, Pastebin PRO Subscription, OSX Keychain entries
+#                pastebin-api-[dev|user]-key.
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: Robert Sink (robert.sink@gmail.com)
+#  ORGANIZATION: ---
+#       CREATED: 12/12/2017 17:22
+#      REVISION:  ---
+#===============================================================================
+
+set -o nounset                              # Treat unset variables as an error
 
 API_DEV_KEY=$(2>&1 security find-generic-password -ga pastebin-api-dev-key | grep "^password: "  | cut -f2 -d\")
 API_USER_KEY=$(2>&1 security find-generic-password -ga pastebin-api-user-key | grep "^password: "  | cut -f2 -d\")
